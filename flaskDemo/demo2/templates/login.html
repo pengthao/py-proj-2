@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div clas="jumbotron">
+    <h1>Welcome to the username page!</h1>
+    <p>Please create a new username.</p>
+    <ul>
+        <li>username must contain a upper case letter</li>
+        <li>username must contain a lower case letter</li>
+        <li>username must end with a number</li>
+    </ul>
+        <form action="{{ url_for('report_page' ) }}">
+            <label for="username">Username:</label>
+            <input type="text" name="username">
+            <input type="submit" value="Submit Form">
+        </form>
+</div>
+{% endblock %}
