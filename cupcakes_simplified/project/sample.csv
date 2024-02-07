@@ -1,6 +1,6 @@
-size,name,price,flavor,frosting,sprinkles,filling
-regular,Stars and Stripes,2.99,Vanilla,Vanilla,"['Red', 'White', 'Blue', 'Chocolate']",Chocolate
-mini,Oreo,0.99,Chocolate,Cookies and Cream,['Oreo pieces'],
-large,Red Velvet,3.99,Red Velvet,Cream Cheese,[],
-regular,Triple Chocolate,2.99,Chocolate,Chocolate,[],Chocolate
-regular,Strawberry,2.99,Stawberry,Vanilla,[],
+index, img, size, name, price, flavor, frosting, sprinkles, filling
+1, https://shorturl.at/bfqyH, regular, Stars and Stripes, 2.99, Vanilla, Vanilla, ['Red','White','Blue','Chocolate'], Chocolate
+2, https://shorturl.at/axFO6, mini, Oreo, 1.99, Chocolate, Cookies and Cream, ['Oreo pieces']
+3, https://shorturl.at/uDZ39, large, Red Velvet, 3.99,Red Velvet, Cream Cheese, []
+4, https://shorturl.at/mHUX4, regular, Triple Chocolate, 2.99, Chocolate, Chocolate, [], Chocolate
+5, https://shorturl.at/awLM3, regular, Strawberry, 2.99, Stawberry, Vanilla,[]

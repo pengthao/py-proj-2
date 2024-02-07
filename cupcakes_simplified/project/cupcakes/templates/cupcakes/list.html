@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron container-fluid row flex" >
+        <h1>Cupcake Gallery</h1>
+        <p>Click the cupcake to view details and add to cart</p>
+        <div class="row">
+            {% for cupcake in cupcakes %}
+                <div class="col-md-2 mb-4">
+                    <a href="{{ url_for('cupcakes.add', cupcake_id=cupcake.id) }}">        
+                        <img src="{{ cupcake.display_img() }}" alt="{{ cupcake.name }}" class="rounded galleryImg" >
+                    </a>
+                    <br>
+                    {{ cupcake.display_list() }}
+                </div>
+                {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

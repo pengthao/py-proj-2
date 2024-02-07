@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Shopping Cart!</h1>
+        <div class="row">
+            {% set total = 0.00 %}
+            {% for cupcake in shoppingCart %}
+                <div class="col-md-2 mb-4">   
+                    <img src="{{ cupcake.img }}" alt="{{ cupcake.name }}" class="rounded galleryImg" >
+                    <br>
+                    <h4>{{ cupcake.name }}</h4>
+                    <p> Price per unit: ${{ '%.2f'|format(cupcake.price * mod) }}
+                        <br>
+                        Size: {{cupcake.size}}
+                    </p>
+                    <form method="POST" action="{{ url_for('cart.editCart', cupcake_id=cupcake.id) }}">
+                        {{formEdit.hidden_tag()}}
+                        {{formEdit.size.label}}
+                        {{formEdit.size(value=cupcake.size)}}<br>
+                        {{formEdit.quantity.label}}
+                        {{formEdit.quantity(value=cupcake.quantity)}}<br>
+                        {{formEdit.submit.label}}
+                        {{formEdit.submit()}}<br>
+                    </form>
+
+                    <p>Subtotal: ${{ '%.2f'|format(cupcake.price * cupcake.quantity * mod) }}</p>
+
+                    {% set total = total + (cupcake.price * cupcake.quantity * mod) %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="jumbotron bg-light">
+            <h1>Order</h1>
+            <form method="POST" action="{{ url_for('cart.submitOrder') }}">
+                {{formSubmit.hidden_tag()}}
+                {{formSubmit.name.label}}
+                {{formSubmit.name()}}<br>
+                {{formSubmit.phone.label}}
+                {{formSubmit.phone()}}<br>
+                {{formSubmit.date.label}}
+                {{formSubmit.date()}}<br>
+                <p>Total: ${{ '%.2f'|format(formSubmit.total.data) }}</p>
+                {{formSubmit.submit.label}}
+                {{formSubmit.submit()}}<br>
+            </form>
+        </div>
+    </div>
+{% endblock %}

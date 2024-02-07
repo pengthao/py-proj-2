@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1>Cupcakes!</h1>
+        {% if cupcake %}
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img-thumbnail" src="{{ cupcake.display_img() }}" alt="{{ cupcake.name }}" style="width: 100%;">
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        {{ cupcake.display_details()}}
+                    </h3>
+                    <form method="POST" action="{{ url_for('cupcakes.add', cupcake_id=cupcake.id) }}">
+                        {{form.hidden_tag()}}
+                        {{form.size.label}}
+                        {{form.size()}}<br>
+                        {{form.quantity.label}}
+                        {{form.quantity()}}<br>
+                        {% if not cupcake.sprinkles %}
+                            {{form.sprinkles.label}}
+                            {{form.sprinkles()}}<br>
+                        {% endif %}
+                        {% if not cupcake.filling %}
+                            {{form.filling.label}}
+                            {{form.filling()}}<br>
+                        {% endif %}
+                        {{form.submit.label}}
+                        {{form.submit()}}<br>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <p>Cupcake not found.</p>
+        {% endif %}
+    </div>
+{% endblock %}

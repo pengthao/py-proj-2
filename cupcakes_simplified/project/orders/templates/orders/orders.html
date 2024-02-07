@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron container-fluid row flex">
+        <h1>Cupcake Gallery</h1>
+        <p>Click the cupcake to view details and add to cart</p>
+        <div class="row">
+            {% for order in orders|sort(attribute='date') %}
+                <div class="col-md-2 mb-4">
+                    <!-- Display order information here -->
+                    <p>Order Date: {{ order.date }}</p>
+                    <!-- Add other order details as needed -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
